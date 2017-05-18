@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nice to Meet Vue 2</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div id="app">
+		<input type="text" v-model="first_name">
+		<input type="text" v-model="last_name"><br><br>
+		{{ name }}
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				first_name: 'John',
+				last_name: 'Doe'
+			},
+			computed: {
+				name: function(){
+					return this.first_name + ' ' + this.last_name;
+				}
+			}
+			// watch: {
+			// 	first_name: function(){
+			// 		this.name = this.first_name + ' ' + this.last_name;
+			// 	},
+			// 	last_name: function(){
+			// 		this.name = this.first_name + ' ' + this.last_name;
+			// 	}
+			// },
+			// created: function(){
+			// 	this.name = this.first_name + ' ' + this.last_name;
+			// }
+			// mounted, updated, destroyed
+		});
+	</script>
+</body>
+</html>

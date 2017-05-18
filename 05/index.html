@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nice to Meet Vue 2</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div id="app">
+		<template v-if="fridge == 'full'">The Fridge is Full. Let's Eat!</template>
+		<template v-else-if="fridge == 'half-full'">We can still eat!</template>
+		<template v-else>
+			<p>The Fridge is Empty. Let's Get Some Groceries</p>
+			<ul>
+				<li v-for="(food, key, index) in groceries">{{ index+1 }} : {{ key }} - {{ food }}</li>
+			</ul>
+		</template>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				fridge: 'empty',
+				//groceries: ['Milk', 'Eggs', 'Cheese']
+				groceries: {
+					milk: 'Almond Milk',
+					eggs: 'Organic Eggs',
+					cheese: 'Provolone Cheese'
+				}
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nice to Meet Vue 2</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div id="app">
+		<input type="text" v-model="name"><br><br>
+		<span :id="id">Hello </span>
+		{{ name }}
+		<br><br><div v-html="html"></div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				name: 'Tony',
+				id: 'greeting',
+				html: '<a href="http://google.com">Google</a>'
+			},
+			updated: function(){
+				console.log('updated');
+			}
+			// mounted, updated, destroyed
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nice to Meet Vue 2</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div id="app">
+		<my-counter text="+1"></my-counter><br>
+		<my-counter text="add One"></my-counter>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.js"></script>
+	<script>
+		Vue.component('my-counter', {
+			props: ['text'],
+			template: '<div><input type="button" :value="text" @click="counter += 1">The Counter is {{ counter }}</div>',
+			data: function(){
+				return {
+					counter: 0
+				}
+			}
+		});
+
+		var vm = new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+</html>
